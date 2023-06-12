@@ -1,7 +1,10 @@
 // peguei o fremwork express
 const express = require('express')
 const uiid = require('uuid')
+const cors = require('cors')
+
 const app = express()
+app.use(cors())
 // meusite.com/users?name=danilo&age=26
 // porta
 //configurando a minha leitura json
@@ -43,9 +46,9 @@ app.put('/users/:id', ChekUserId , (req, res) => {
 
    const index = req.usserIndex
    const id = req.UserId
-    const { name, age, sexo, cidade } = req.body
+    const { name, age, } = req.body
 
-    const update = { id, name, age, sexo, cidade }
+    const update = { id, name, age, }
 
     
    
@@ -62,9 +65,9 @@ app.put('/users/:id', ChekUserId , (req, res) => {
 // rota do tipo post- cria um novo usuario
 app.post('/users', (req, res) => {
 
-    const { name, age, sexo, cidade } = req.body
+    const { name, age, } = req.body
 
-    const use = { id: uiid.v4(), name, age, sexo, cidade }
+    const use = { id: uiid.v4(), name, age,  }
 
 
 
